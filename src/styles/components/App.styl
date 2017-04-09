@@ -1,0 +1,55 @@
+.App {
+  background-color: #000000
+  color: #FFFFFF;
+  display: block
+  height: 100vh
+  position: fixed
+  overflow-y: scroll
+  width: 100vw
+
+  // .App-header
+  &-header {
+    
+    // .App-header-container
+    &-container {
+      margin: 0 auto
+      padding: 1rem
+      width: 100%
+
+      @media screen and (min-width: $device.laptop.width){
+        max-width: $container.laptop.max-width
+      }
+
+      @media screen and (min-width: $device.desktop.width){
+        max-width: $container.desktop.max-width
+      }
+    }
+
+    // .App-header-primary
+    &-primary {
+      flex-direction: column
+    }
+
+    // .App-header-secondary
+    &-secondary {
+
+    }    
+  }
+
+  // .App-main
+  &-main {
+
+  }
+  
+  // .App-logo
+  &-logo {
+    animation App-logo-spin infinite 20s linear
+    height 80px
+  }
+}
+
+@keyframes App-logo-spin
+  from
+    transform rotate(0deg)
+  to
+    transform rotate(360deg)

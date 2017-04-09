@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
+const App = () => (
+  <div className="App">
+    <div className="App-header">
+      <div className="App-header-container">
+        <div className="App-header-primary">
+          <div>github link</div>
+          <h2 className="App-title">
+            bite sized, typography experiments with react.js
+          </h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
-    );
-  }
-}
+    </div>
+  </div>
+);
 
 export default App;
