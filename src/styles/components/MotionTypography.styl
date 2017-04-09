@@ -1,0 +1,22 @@
+.MotionTypography {
+  font-family: 'Playfair Display', serif
+  font-size: 38px
+  font-style: normal
+  font-weight: 400
+  overflow-y: hidden
+  line-height: 1.25;
+
+  &-segment {
+    display: inline-block  
+    white-space: pre-wrap
+    opacity: 0
+    transform: translateY(100%)
+    will-change: transform
+
+    &.isActive { 
+      opacity: 1
+      transform: translateY(0%)
+      transition: all 2s cubic-bezier(0, 0, 0, 1)
+    }
+  }
+}
