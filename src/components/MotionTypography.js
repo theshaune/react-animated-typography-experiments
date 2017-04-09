@@ -2,6 +2,30 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import classNames from 'classnames';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 400;
+  overflow-y: hidden;
+  line-height: 1.25;
+`;
+
+const Segment = styled.span`
+  display: inline-block;
+  white-space: pre-wrap;
+  opacity: 0;
+  transform: translateY(100%);
+  will-change: transform;
+
+  &.isActive {
+      opacity: 1;
+      transform: translateY(0%);
+      transition: all 2s cubic-bezier(0, 0, 0, 1);
+  }
+`;
 
 class MotionTypography extends Component {
   static propTypes = {
@@ -72,21 +96,21 @@ class MotionTypography extends Component {
 
   render() {
     const innerTree = this.state.segments.map(obj => (
-      <span
+      <Segment
         key={obj.id}
-        className={classNames('MotionTypography-segment', {
+        className={classNames({
           [this.props.activeClassName]: obj.isActive
         })}
       >
         {obj.segment}
-      </span>
+      </Segment>
     ));
 
     return (
       <div>
-        <div className="MotionTypography">
+        <Wrapper className="MotionTypography">
           {innerTree}
-        </div>
+        </Wrapper>
         <button
           className={classNames('Button', 'isClean')}
           onClick={this.repeatAnimation}
