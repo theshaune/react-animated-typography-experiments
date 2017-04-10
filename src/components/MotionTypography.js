@@ -108,7 +108,7 @@ class MotionTypography extends Component {
 
     return (
       <div>
-        <Wrapper className="MotionTypography">
+        <Wrapper>
           {innerTree}
         </Wrapper>
         <button
