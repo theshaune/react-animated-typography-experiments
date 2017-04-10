@@ -2,6 +2,9 @@
 
 Bite sized, typography experiments with react.
 
+This is quite an experimental repo, I am new to react and exploring, breaking and learning.
+
+
 ## Notes
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
