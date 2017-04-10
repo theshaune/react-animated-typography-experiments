@@ -19,6 +19,6 @@ const GitHubBanner = () => (
 
 GitHubBanner.Container = GitHubBannerContainer;
 GitHubBanner.Link = GitHubBannerLink;
-GitHubBanner.Lmage = GitHubBannerImage;
+GitHubBanner.Image = GitHubBannerImage;
 
 export default GitHubBanner;
