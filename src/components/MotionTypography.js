@@ -33,11 +33,11 @@ const Segment = styled.span`
 
 class MotionTypography extends Component {
   static propTypes = {
-    title: PropTypes.string
+    title: PropTypes.string,
   };
 
   static defaultProps = {
-    title: 'Write something cool.'
+    title: 'Write something cool.',
   };
 
   constructor(props) {
@@ -47,8 +47,8 @@ class MotionTypography extends Component {
       currentIndex: 0,
       segments: [...this.props.title].map(segment => ({
         segment,
-        id: shortid.generate()
-      }))
+        id: shortid.generate(),
+      })),
     });
 
     this.state = this.initialState();
