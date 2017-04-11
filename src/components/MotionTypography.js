@@ -12,8 +12,6 @@ const stagger = keyframes`
 `;
 
 const Wrapper = styled.div`
-  animation-name: example;
-  animation-duration: 4s;
   font-family: 'Playfair Display', serif;
   font-size: 38px;
   font-style: normal;
@@ -23,7 +21,7 @@ const Wrapper = styled.div`
 `;
 
 const Segment = styled.span`
-  animation: ${stagger} 1s ease;
+  animation: ${stagger} 1s cubic-bezier(0, 0, 0, 1);
   animation-delay: ${props => `${0.025 * props.index}s`};
   animation-fill-mode: forwards;
   display: inline-block;
@@ -49,15 +47,14 @@ class MotionTypography extends Component {
       currentIndex: 0,
       segments: [...this.props.title].map(segment => ({
         segment,
-        id: shortid.generate(),
-        isActive: false
+        id: shortid.generate()
       }))
     });
 
     this.state = this.initialState();
   }
 
-  componentDidMount() {}
+  handleClick = () => this.repeatAnimation();
 
   repeatAnimation = () => this.setState({ key: shortid.generate() });
 
@@ -75,7 +72,7 @@ class MotionTypography extends Component {
         </Wrapper>
         <button
           className={classNames('Button', 'isClean')}
-          onClick={this.repeatAnimation}
+          onClick={this.handleClick}
         >
           repeat
         </button>
