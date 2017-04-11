@@ -2,9 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import classNames from 'classnames';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const stagger = keyframes`
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+`;
 
 const Wrapper = styled.div`
+  animation-name: example;
+  animation-duration: 4s;
   font-family: 'Playfair Display', serif;
   font-size: 38px;
   font-style: normal;
@@ -14,30 +23,23 @@ const Wrapper = styled.div`
 `;
 
 const Segment = styled.span`
+  animation: ${stagger} 1s ease;
+  animation-delay: ${props => `${0.025 * props.index}s`};
+  animation-fill-mode: forwards;
   display: inline-block;
-  white-space: pre-wrap;
   opacity: 0;
   transform: translateY(100%);
+  white-space: pre-wrap;
   will-change: transform;
-
-  &.isActive {
-      opacity: 1;
-      transform: translateY(0%);
-      transition: all 2s cubic-bezier(0, 0, 0, 1);
-  }
 `;
 
 class MotionTypography extends Component {
   static propTypes = {
-    activeClassName: PropTypes.string,
-    title: PropTypes.string,
-    initialDelay: PropTypes.number
+    title: PropTypes.string
   };
 
   static defaultProps = {
-    activeClassName: 'isActive',
-    title: 'Write something cool.',
-    initialDelay: 500
+    title: 'Write something cool.'
   };
 
   constructor(props) {
@@ -55,60 +57,20 @@ class MotionTypography extends Component {
     this.state = this.initialState();
   }
 
-  componentDidMount() {
-    setTimeout(
-      () => {
-        this.rafId = requestAnimationFrame(this.animateSegments);
-      },
-      this.props.initialDelay
-    );
-  }
+  componentDidMount() {}
 
-  repeatAnimation = () => {
-    cancelAnimationFrame(this.rafId);
-
-    this.setState(this.initialState(), () => {
-      setTimeout(
-        () => this.rafId = requestAnimationFrame(this.animateSegments),
-        this.props.initialDelay
-      );
-    });
-  };
-
-  animateSegments = () => {
-    this.rafId = requestAnimationFrame(this.animateSegments);
-
-    const newState = Object.assign({}, this.state);
-    newState.segments[this.state.currentIndex].isActive = true;
-
-    this.setState(
-      {
-        ...newState,
-        currentIndex: this.state.currentIndex + 1
-      },
-      () => {
-        if (this.state.currentIndex >= this.state.segments.length) {
-          cancelAnimationFrame(this.rafId);
-        }
-      }
-    );
-  };
+  repeatAnimation = () => this.setState({ key: shortid.generate() });
 
   render() {
-    const innerTree = this.state.segments.map(obj => (
-      <Segment
-        key={obj.id}
-        className={classNames({
-          [this.props.activeClassName]: obj.isActive
-        })}
-      >
+    const innerTree = this.state.segments.map((obj, index) => (
+      <Segment key={obj.id} index={index}>
         {obj.segment}
       </Segment>
     ));
 
     return (
       <div>
-        <Wrapper>
+        <Wrapper key={this.state.key}>
           {innerTree}
         </Wrapper>
         <button
