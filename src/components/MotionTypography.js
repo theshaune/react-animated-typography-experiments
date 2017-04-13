@@ -32,7 +32,7 @@ const Segment = styled.span`
 `;
 
 const Button = styled.button`
-  background-color: none
+  background-color: none;
   color: white;
   
   &.isClean {
