@@ -31,6 +31,17 @@ const Segment = styled.span`
   will-change: transform;
 `;
 
+const Button = styled.button`
+  background-color: none
+  color: white;
+  
+  &.isClean {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+`;
+
 class MotionTypography extends Component {
   static propTypes = {
     title: PropTypes.string,
@@ -70,12 +81,9 @@ class MotionTypography extends Component {
         <Wrapper key={this.state.key}>
           {innerTree}
         </Wrapper>
-        <button
-          className={classNames('Button', 'isClean')}
-          onClick={this.handleClick}
-        >
+        <Button className={classNames('isClean')} onClick={this.handleClick}>
           repeat
-        </button>
+        </Button>
       </div>
     );
   }
