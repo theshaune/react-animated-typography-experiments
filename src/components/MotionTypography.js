@@ -54,15 +54,13 @@ class MotionTypography extends Component {
   constructor(props) {
     super(props);
 
-    this.initialState = () => ({
+    this.state = {
       currentIndex: 0,
       segments: [...this.props.title].map(segment => ({
         segment,
         id: shortid.generate(),
       })),
-    });
-
-    this.state = this.initialState();
+    };
   }
 
   handleClick = () => this.repeatAnimation();
