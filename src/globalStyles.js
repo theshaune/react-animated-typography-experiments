@@ -17,11 +17,11 @@ const globalStyles = injectGlobal`
     font-weight: 200;
     letter-spacing: 0.0em;
     line-height: 1.75;
-    height: 100%;
+    // height: 100%;
     margin: 0;
-    max-height: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    // max-height: 100%;
+    // overflow-x: hidden;
+    // overflow-y: hidden;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -80,6 +80,15 @@ const globalStyles = injectGlobal`
   strong {
     font-weight: 400;
   }
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity 5s ease-in;
+}
 `;
 
 export default globalStyles;
