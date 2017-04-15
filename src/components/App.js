@@ -58,7 +58,7 @@ const App = props => (
         'six',
         'seven',
         'eight',
-        'none',
+        'nine',
         'ten',
       ].map(title => (
         <App.Panel>
