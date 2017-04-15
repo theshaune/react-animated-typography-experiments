@@ -1,9 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import MotionTypography from './MotionTypography';
-import GitHubBanner from './GitHubBanner';
 
-const Container = styled.div`
+export const Wrapper = styled.div`
   background-color: #000000;
   color: #FFFFFF;
   display: flex;
@@ -15,21 +12,10 @@ const Container = styled.div`
   width: 100vw;
 `;
 
-const Main = styled.div`
+export const Main = styled.div`
   align-items: center;
   display: flex;
   flex-grow: 1;
   justify-content: center;
   padding: 1rem;
 `;
-
-const App = () => (
-  <Container>
-    <GitHubBanner />
-    <Main>
-      <MotionTypography title={`Who cares, it's only fashion!`} />
-    </Main>
-  </Container>
-);
-
-export default App;

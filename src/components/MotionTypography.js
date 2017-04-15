@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
-import classNames from 'classnames';
 import styled, { keyframes } from 'styled-components';
 
 const stagger = keyframes`
@@ -11,80 +10,49 @@ const stagger = keyframes`
   }
 `;
 
-const Wrapper = styled.div`
+const Segments = styled.div`
   font-family: 'Playfair Display', serif;
   font-size: 38px;
-  font-style: normal;
-  font-weight: 400;
   overflow-y: hidden;
   line-height: 1.25;
 `;
 
 const Segment = styled.span`
-  animation: ${stagger} 1s cubic-bezier(0, 0, 0, 1);
-  animation-delay: ${props => `${0.025 * props.index}s`};
+  animation-duration: ${props => `${props.animationDuration}ms`};
+  animation-name: ${stagger};
   animation-fill-mode: forwards;
   display: inline-block;
   opacity: 0;
   transform: translateY(100%);
   white-space: pre-wrap;
-  will-change: transform;
 `;
 
-const Button = styled.button`
-  background-color: none;
-  color: white;
-  
-  &.isClean {
-    background: none;
-    border: none;
-    padding: 0;
-  }
-`;
-
-class MotionTypography extends Component {
-  static propTypes = {
-    title: PropTypes.string,
-  };
-
-  static defaultProps = {
-    title: 'Write something cool.',
-  };
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentIndex: 0,
-      segments: [...this.props.title].map(segment => ({
-        segment,
-        id: shortid.generate(),
-      })),
-    };
-  }
-
-  handleClick = () => this.repeatAnimation();
-
-  repeatAnimation = () => this.setState({ key: shortid.generate() });
-
-  render() {
-    const innerTree = this.state.segments.map((obj, index) => (
-      <Segment key={obj.id} index={index}>
-        {obj.segment}
+const MotionTypography = props => (
+  <Segments>
+    {[...props.title].map((segment, index) => (
+      <Segment
+        key={shortid.generate()}
+        animationDuration={props.animationDuration}
+        style={{
+          animationDelay: `${props.animationDelay * index}s`,
+        }}
+      >
+        {segment}
       </Segment>
-    ));
+    ))}
+  </Segments>
+);
 
-    return (
-      <div>
-        <Wrapper key={this.state.key}>
-          {innerTree}
-        </Wrapper>
-        <Button className={classNames('isClean')} onClick={this.handleClick}>
-          repeat
-        </Button>
-      </div>
-    );
-  }
-}
+MotionTypography.propTypes = {
+  animationDelay: PropTypes.number,
+  animationDuration: PropTypes.number,
+  title: PropTypes.string,
+};
+
+MotionTypography.defaultProps = {
+  animationDelay: 0.025,
+  animationDuration: 100,
+  title: '',
+};
 
 export default MotionTypography;
