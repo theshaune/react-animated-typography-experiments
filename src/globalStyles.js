@@ -7,6 +7,7 @@ const globalStyles = injectGlobal`
   }
 
   html {
+    background-color: black;
     position: relative; 
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
