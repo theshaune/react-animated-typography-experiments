@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
 import styled, { keyframes } from 'styled-components';
 
 const stagger = keyframes`

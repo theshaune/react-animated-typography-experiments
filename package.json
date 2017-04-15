@@ -12,6 +12,7 @@
     "react-on-screen": "^1.1.0",
     "react-redux": "^5.0.4",
     "react-scripts": "^0.9.5",
+    "recompose": "^0.23.1",
     "redux": "^3.6.0",
     "shortid": "^2.2.8",
     "styled-components": "next"
