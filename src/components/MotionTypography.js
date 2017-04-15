@@ -13,35 +13,39 @@ const stagger = keyframes`
 const Segments = styled.div`
   font-family: 'Playfair Display', serif;
   font-size: 38px;
-  overflow-y: hidden;
   line-height: 1.25;
 `;
 
 const Segment = styled.span`
-  animation-duration: ${props => `${props.animationDuration}ms`};
-  animation-name: ${stagger};
-  animation-fill-mode: forwards;
   display: inline-block;
-  opacity: 0;
-  transform: translateY(100%);
-  white-space: pre-wrap;
+  overflow-y: hidden;
+
+  span {
+    animation-name: ${stagger};
+    animation-fill-mode: forwards;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    white-space: pre-wrap;
+  }
 `;
 
-const MotionTypography = props => (
-  <Segments>
-    {[...props.title].map((segment, index) => (
-      <Segment
-        key={shortid.generate()}
-        animationDuration={props.animationDuration}
-        style={{
-          animationDelay: `${props.animationDelay * index}s`,
-        }}
-      >
-        {segment}
-      </Segment>
-    ))}
-  </Segments>
-);
+const MotionTypography = props => {
+  const styles = index => ({
+    animationDuration: `${props.animationDuration}ms`,
+    animationDelay: `${props.animationDelay * index}s`,
+  });
+
+  return (
+    <Segments>
+      {[...props.title].map((segment, index) => (
+        <Segment key={shortid.generate()} style={styles(index)}>
+          <span style={styles(index)}>{segment}</span>
+        </Segment>
+      ))}
+    </Segments>
+  );
+};
 
 MotionTypography.propTypes = {
   animationDelay: PropTypes.number,
