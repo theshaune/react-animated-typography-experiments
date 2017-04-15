@@ -5,12 +5,12 @@ Bite sized, typography experiment with react.
 
 ## Tasks
 
-[x] Containers
-[x] Components
-[x] Redux
-[ ] React-Router
-[x] Styled-components
-[ ] Tests
+- [x] Containers
+- [x] Components
+- [x] Redux
+- [ ] React-Router
+- [x] Styled-components
+- [ ] Tests
 
 
 ## Notes
