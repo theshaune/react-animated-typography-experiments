@@ -80,15 +80,6 @@ const globalStyles = injectGlobal`
   strong {
     font-weight: 400;
   }
-
-.example-appear {
-  opacity: 0.01;
-}
-
-.example-appear.example-appear-active {
-  opacity: 1;
-  transition: opacity 5s ease-in;
-}
 `;
 
 export default globalStyles;
