@@ -1,6 +1,6 @@
 # React Typography Experiment
 
-Bite sized, typography experiment with react.
+A Bite sized typography experiment with react.
 
 
 ## Tasks
