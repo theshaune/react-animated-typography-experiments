@@ -3,9 +3,29 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import GitHubBanner from './library/GitHubBanner';
 import MotionTypography from '../containers/MotionTypography';
-import * as App from './library/App';
 
-export const Panel = styled.div`
+const Wrapper = styled.div`
+  background-color: #000000;
+  color: #FFFFFF;
+  // display: flex;
+  // flex-direction: column;
+  // height: 100vh;
+  // position: fixed;
+  overflow-x: none;
+  // overflow-y: scroll;
+  // width: 100vw;
+`;
+
+const Main = styled.div`
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 1rem;
+  flex-direction: column;
+`;
+
+const Panel = styled.div`
 
   &:first-child {
     height: 100vh;  
@@ -17,7 +37,7 @@ export const Panel = styled.div`
   align-items: center;
 `;
 
-const AppIndex = props => (
+const App = props => (
   <App.Wrapper>
     <GitHubBanner />
 
@@ -41,20 +61,24 @@ const AppIndex = props => (
         'none',
         'ten',
       ].map(title => (
-        <Panel>
+        <App.Panel>
           <MotionTypography {...props.motion} title={title} />
-        </Panel>
+        </App.Panel>
       ))}
     </App.Main>
   </App.Wrapper>
 );
 
-AppIndex.propTypes = {
+App.propTypes = {
   motion: PropTypes.shape(),
 };
 
-AppIndex.defaultProps = {
+App.defaultProps = {
   motion: {},
 };
 
-export default AppIndex;
+App.Main = Main;
+App.Panel = Panel;
+App.Wrapper = Wrapper;
+
+export default App;
