@@ -7,16 +7,20 @@ A Bite sized typography experiment with react.
 
 - [x] Containers
 - [x] Components
+- [ ] [Implement Design](https://dribbble.com/shots/3421651-landing-page)
+- [ ] Pages
 - [ ] Performance
-- [x] Redux
 - [ ] React-Router
+- [x] Redux
+- [ ] State controls
 - [x] Styled-components
 - [ ] Tests
+- [ ] UI with Menu
 
 
 ## Notes
 
-- This is an experimental repo, I am new to react so I am exploring, breaking and learning.
+- This is an experimental repo, I am new to react so I am exploring, breaking and learning. Expect this repo to be refactored, changed & occasionaly broken. 
 - This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
