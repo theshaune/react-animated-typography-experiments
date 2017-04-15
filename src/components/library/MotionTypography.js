@@ -21,7 +21,8 @@ const Segment = styled.span`
   animation-fill-mode: forwards;
   display: inline-block;
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(${props =>
+  props.direction === 'up' ? '-100%' : '100%'});
   white-space: pre-wrap;
 `;
 
@@ -45,6 +46,7 @@ const MotionTypography = props => {
 MotionTypography.propTypes = {
   animationDelay: PropTypes.number,
   animationDuration: PropTypes.number,
+  direction: PropTypes.string,
   isVisible: PropTypes.string,
   title: PropTypes.string,
 };
@@ -52,6 +54,7 @@ MotionTypography.propTypes = {
 MotionTypography.defaultProps = {
   animationDelay: 0.025,
   animationDuration: 100,
+  direction: 'up',
   isVisible: true,
   title: '',
 };
