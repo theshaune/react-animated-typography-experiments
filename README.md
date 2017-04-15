@@ -7,6 +7,7 @@ A Bite sized typography experiment with react.
 
 - [x] Containers
 - [x] Components
+- [ ] Performance
 - [x] Redux
 - [ ] React-Router
 - [x] Styled-components
