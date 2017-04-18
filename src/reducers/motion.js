@@ -1,8 +1,9 @@
 import { MOTION_SET_DURATION } from '../constants';
+import MotionTypography from '../components/library/MotionTypography';
 
 const initialState = {
-  animationDelay: 50,
-  animationDuration: 500,
+  animationDelay: MotionTypography.defaultProps.animationDelay,
+  animationDuration: MotionTypography.defaultProps.animationDuration,
 };
 
 export default function motion(state = initialState, action) {

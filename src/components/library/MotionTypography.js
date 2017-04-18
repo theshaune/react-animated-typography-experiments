@@ -12,7 +12,6 @@ const stagger = keyframes`
 const Segments = styled.div`
   font-family: 'Playfair Display', serif;
   font-size: 38px;
-  line-height: 1.25;
 `;
 
 const Segment = styled.span`
@@ -25,7 +24,7 @@ const Segment = styled.span`
 
 const MotionTypography = props => {
   const styles = index => ({
-    animationDuration: `${props.animationDuration}ms`,
+    animationDuration: `${props.animationDuration + index * 0.15}ms`,
     animationDelay: props.direction === 'up'
       ? `${props.animationDelay * (props.title.length - index)}ms`
       : `${props.animationDelay * index}ms`,
@@ -57,9 +56,9 @@ MotionTypography.propTypes = {
 };
 
 MotionTypography.defaultProps = {
-  animationDelay: 50,
-  animationDuration: 100,
-  direction: 'up',
+  animationDelay: 10,
+  animationDuration: 1000,
+  direction: 'down',
   isVisible: true,
   title: '',
 };
