@@ -8,13 +8,6 @@ import MotionTypography from '../containers/MotionTypography';
 const Wrapper = styled.div`
   background-color: #000000;
   color: #FFFFFF;
-  // display: flex;
-  // flex-direction: column;
-  // height: 100vh;
-  // position: fixed;
-  overflow-x: none;
-  // overflow-y: scroll;
-  // width: 100vw;
 `;
 
 const Main = styled.div`
@@ -50,7 +43,7 @@ const App = props => (
 
     <App.Main>
       {[
-        `Who cares, It's only fashion!`,
+        `Scroll`,
         faker.name.findName(),
         faker.name.findName(),
         faker.name.findName(),
