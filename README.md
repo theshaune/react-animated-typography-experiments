@@ -5,16 +5,24 @@ A Bite sized typography experiment with react.
 
 ## Tasks
 
+- [ ] Add loading screen
+- [ ] Add CSS Animation Packages
 - [x] Containers
 - [x] Components
+- [x] Map Faker data
 - [ ] [Implement Design](https://dribbble.com/shots/3421651-landing-page)
 - [ ] Pages
 - [ ] Performance
 - [ ] React-Router
 - [x] Redux
+- [ ] Spec and Isolate components
+- [ ] Scroll Velocity
 - [ ] State controls
 - [x] Styled-components
+- [ ] String handling/words etc.
 - [ ] Tests
+- [ ] Throttle
+- [ ] Visibility hitbox
 - [ ] UI with Menu
 
 
