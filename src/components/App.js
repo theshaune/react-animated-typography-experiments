@@ -30,15 +30,23 @@ const Panel = styled.div`
   align-items: center;
 `;
 
+const Button = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  outline: none;
+`;
+
 const App = props => (
   <App.Wrapper>
     <GitHubBanner />
 
     <div style={{ position: 'fixed' }}>
-      <button onClick={() => props.setDuration(100)}>100</button>
-      <button onClick={() => props.setDuration(1000)}>1000</button>
-      <button onClick={() => props.setDuration(2000)}>2000</button>
-      <button onClick={() => props.setDuration(3000)}>3000</button>
+      <Button onClick={() => props.setDuration(100)}>100</Button>
+      <Button onClick={() => props.setDuration(1000)}>1000</Button>
+      <Button onClick={() => props.setDuration(2000)}>2000</Button>
+      <Button onClick={() => props.setDuration(3000)}>3000</Button>
     </div>
 
     <App.Main>
