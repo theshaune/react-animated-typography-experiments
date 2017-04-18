@@ -28,7 +28,7 @@ const MotionTypography = props => {
     animationDuration: `${props.animationDuration}ms`,
     animationDelay: `${props.animationDelay * index}ms`,
     animationName: props.isVisible ? `${stagger}` : null,
-    transform: `translateY(${props.direction === 'up' ? '75%' : '75%'})`,
+    transform: `translateY(${props.direction === 'up' ? '-75%' : '75%'})`,
   });
 
   return (
