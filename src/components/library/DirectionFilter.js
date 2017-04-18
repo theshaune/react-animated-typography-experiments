@@ -6,13 +6,10 @@ class DirectionFilter extends Component {
 
     this.state = {
       direction: 'down',
+      pageYOffset: -1,
     };
 
     this.getScrollDirection = this.getScrollDirection.bind(this);
-    this.setEl = ref => {
-      this.el = ref;
-    };
-    this.previousTop = 0;
   }
 
   componentDidMount() {
@@ -24,14 +21,11 @@ class DirectionFilter extends Component {
   }
 
   getScrollDirection() {
-    const rect = this.el.getBoundingClientRect();
-    const direction = this.previousTop > rect.top ? 'down' : 'up';
+    const direction = this.state.pageYOffset > window.pageYOffset
+      ? 'down'
+      : 'up';
 
-    this.previousTop = rect.top;
-
-    if (direction !== this.state.direction) {
-      this.setState({ direction });
-    }
+    this.setState({ direction, pageYOffset: window.pageYOffset });
   }
 
   attachListener() {
@@ -44,7 +38,7 @@ class DirectionFilter extends Component {
 
   render(props) {
     return (
-      <div ref={this.setEl}>
+      <div>
         {React.Children.map(
           this.props.children,
           child => React.cloneElement(child, {
