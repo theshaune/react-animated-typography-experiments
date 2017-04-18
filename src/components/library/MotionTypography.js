@@ -13,11 +13,11 @@ const Segments = styled.div`
   font-family: 'Playfair Display', serif;
   font-size: 38px;
   line-height: 1.25;
-  overflow-y: hidden;
 `;
 
 const Segment = styled.span`
   animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0, 0, 0, 1);
   display: inline-block;
   opacity: 0;
   white-space: pre-wrap;
@@ -28,7 +28,7 @@ const MotionTypography = props => {
     animationDuration: `${props.animationDuration}ms`,
     animationDelay: `${props.animationDelay * index}ms`,
     animationName: props.isVisible ? `${stagger}` : null,
-    transform: `translateY(${props.direction === 'up' ? '-100%' : '100%'})`,
+    transform: `translateY(${props.direction === 'up' ? '75%' : '75%'})`,
   });
 
   return (
