@@ -9,6 +9,7 @@ A Bite sized typography experiment with react.
 - [ ] Add CSS Animation Packages
 - [x] Containers
 - [x] Components
+- [ ] Extendable custom styles
 - [x] Map Faker data
 - [ ] [Implement Design](https://dribbble.com/shots/3421651-landing-page)
 - [ ] Pages
