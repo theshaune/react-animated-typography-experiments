@@ -26,7 +26,9 @@ const Segment = styled.span`
 const MotionTypography = props => {
   const styles = index => ({
     animationDuration: `${props.animationDuration}ms`,
-    animationDelay: `${props.animationDelay * index}ms`,
+    animationDelay: props.direction === 'up'
+      ? `${props.animationDelay * (props.title.length - index)}ms`
+      : `${props.animationDelay * index}ms`,
     animationName: props.isVisible ? `${stagger}` : null,
     transform: `translateY(${props.direction === 'up' ? '-75%' : '75%'})`,
   });
