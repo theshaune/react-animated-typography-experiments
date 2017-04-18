@@ -11,7 +11,15 @@ const stagger = keyframes`
 
 const Segments = styled.div`
   font-family: 'Playfair Display', serif;
-  font-size: 38px;
+  font-size: 18px;
+
+  @media (min-width: 600px){
+    font-size: 28px;
+  }
+
+  @media (min-width: 900px){
+    font-size: 36px;
+  }
 `;
 
 const Segment = styled.span`
@@ -57,7 +65,7 @@ MotionTypography.propTypes = {
 
 MotionTypography.defaultProps = {
   animationDelay: 10,
-  animationDuration: 1000,
+  animationDuration: 1500,
   direction: 'down',
   isVisible: true,
   title: '',
