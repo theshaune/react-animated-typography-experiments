@@ -1,8 +1,8 @@
 import { MOTION_SET_DURATION } from '../constants';
 
 const initialState = {
-  animationDelay: 0.025,
-  animationDuration: 1000,
+  animationDelay: 50,
+  animationDuration: 500,
 };
 
 export default function motion(state = initialState, action) {

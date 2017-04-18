@@ -17,25 +17,28 @@ const Segments = styled.div`
 `;
 
 const Segment = styled.span`
-  ${props => props.isVisible ? `animation-name: ${stagger}` : ''};
   animation-fill-mode: forwards;
   display: inline-block;
   opacity: 0;
-  transform: translateY(${props =>
-  props.direction === 'up' ? '-100%' : '100%'});
   white-space: pre-wrap;
 `;
 
 const MotionTypography = props => {
   const styles = index => ({
     animationDuration: `${props.animationDuration}ms`,
-    animationDelay: `${props.animationDelay * index}s`,
+    animationDelay: `${props.animationDelay * index}ms`,
+    animationName: props.isVisible ? `${stagger}` : null,
+    transform: `translateY(${props.direction === 'up' ? '-100%' : '100%'})`,
   });
 
   return (
     <Segments>
       {[...props.title].map((segment, index) => (
-        <Segment {...props} style={styles(index)}>
+        <Segment
+          direction={props.direction}
+          isVisible={props.isVisible}
+          style={styles(index)}
+        >
           {segment}
         </Segment>
       ))}
@@ -47,12 +50,12 @@ MotionTypography.propTypes = {
   animationDelay: PropTypes.number,
   animationDuration: PropTypes.number,
   direction: PropTypes.string,
-  isVisible: PropTypes.string,
+  isVisible: PropTypes.bool,
   title: PropTypes.string,
 };
 
 MotionTypography.defaultProps = {
-  animationDelay: 0.025,
+  animationDelay: 50,
   animationDuration: 100,
   direction: 'up',
   isVisible: true,

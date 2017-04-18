@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import faker from 'faker';
 import GitHubBanner from './library/GitHubBanner';
 import MotionTypography from '../containers/MotionTypography';
 
@@ -26,7 +27,6 @@ const Main = styled.div`
 `;
 
 const Panel = styled.div`
-
   &:first-child {
     height: 100vh;  
   }
@@ -42,7 +42,7 @@ const App = props => (
     <GitHubBanner />
 
     <div style={{ position: 'fixed' }}>
-      <button onClick={() => props.setDuration(500)}>500</button>
+      <button onClick={() => props.setDuration(100)}>100</button>
       <button onClick={() => props.setDuration(1000)}>1000</button>
       <button onClick={() => props.setDuration(2000)}>2000</button>
       <button onClick={() => props.setDuration(3000)}>3000</button>
@@ -50,21 +50,22 @@ const App = props => (
 
     <App.Main>
       {[
-        `Who cares, it's only fashion!`,
-        'Two',
-        'Three',
-        'Four',
-        'Five',
-        'six',
-        'seven',
-        'eight',
-        'nine',
-        'ten',
+        `Who cares, It's only fashion!`,
+        faker.name.findName(),
+        faker.name.findName(),
+        faker.name.findName(),
+        faker.name.findName(),
+        faker.name.findName(),
+        faker.name.findName(),
+        faker.name.findName(),
+        faker.name.findName(),
+        faker.name.findName(),
       ].map(title => (
         <App.Panel>
           <MotionTypography {...props.motion} title={title} />
         </App.Panel>
       ))}
+
     </App.Main>
   </App.Wrapper>
 );
